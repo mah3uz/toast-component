@@ -1,6 +1,7 @@
 import React from "react";
+import { useEscapeKey } from "../../utils/hooks";
 
-export const ToastContext = React.createContext();
+export const ToastContext = React.createContext(undefined);
 
 function ToastProvider({ children }) {
   const [toasts, setToasts] = React.useState([]);
@@ -24,13 +25,20 @@ function ToastProvider({ children }) {
     setToasts(nextToast)
   }
 
+  const handleEscape = React.useCallback(() => {
+    setToasts([]);
+  }, [])
+
+  useEscapeKey(handleEscape);
+
   return (
     <ToastContext.Provider
       value={{
         toasts,
         createToast,
         dismissToast,
-    }}>
+      }}
+    >
       {children}
     </ToastContext.Provider>
   );
