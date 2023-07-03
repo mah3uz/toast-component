@@ -263,10 +263,10 @@ In the previous exercise, we added an “escape” keyboard shortcut, to dismiss
 
 Let's build a **custom reusable hook** that makes it easy to reuse this boilerplate to solve future problems.
 
-There are lots of different ways to tackle this, and there's no right or wrong answer, but here's one idea to get you started: what if we create a new custom hook called `useEscapeKey`?
+There are lots of different ways to tackle this, and there's no right or wrong answer, but here's one idea to get you started: what if we create a new custom hook called `useKeyDown`?
 
 ```js
-useEscapeKey(() => {
+useKeyDown(() => {
   // Code to dismiss all toasts
 });
 ```
